@@ -1,0 +1,15 @@
+<md-toolbar color="primary">
+  {{title}}
+</md-toolbar>
+
+<div class="awesome-list">
+  <md-card *ngFor="let contact of contacts | async">
+    <md-card-title>{{contact.firstName}} {{ contact.lastName }}</md-card-title>
+    <md-card-subtitle *ngIf="contact.jobTitle">{{ contact.jobTitle }}</md-card-subtitle>
+    <md-card-content>
+      <p>Email: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+      <p>Phone: <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></p>
+      <p *ngIf="contact.skype">Skype: <span>{{ contact.skype }}</span></p>
+    </md-card-content>
+  </md-card>
+</div>
